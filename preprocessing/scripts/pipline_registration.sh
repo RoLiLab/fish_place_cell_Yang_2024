@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+DATASET_NAME=$1
+SERVER=$2
+EXPERIMENTER=$3
+ANALYZER=$4
+
+julia save_image_coordinate.jl $DATASET_NAME $SERVER $EXPERIMENTER $ANALYZER
+
+./registration_roli.sh $DATASET_NAME $SERVER engert $ANALYZER
+
+julia engert_region.jl $DATASET_NAME $SERVER $EXPERIMENTER $ANALYZER
